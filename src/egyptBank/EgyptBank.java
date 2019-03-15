@@ -7,7 +7,8 @@ import helpingFiles.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import java.io.*;
+import java.util.*;
 
 public class EgyptBank implements ActionListener {
 	/*JFrame frame;
@@ -249,9 +250,22 @@ public class EgyptBank implements ActionListener {
 			}});
 
 		//HistoryPanel
+		Object[][] data = new Object[user1.getTransactions().size()][3];
+		Iterator iterator =user1.getTransactions().iterator();
+		int i=0;
+		while(iterator.hasNext(){
+			Transaction element = (Transaction) iterator.next();
+			data[i][0] = i;
+			data[i][1] = element.transactionType;
+			data[i][2] = element.value;
+			i++;
+		}
+
+
+		Object[] columnNames = { "number", "type", "amount" };
+		DefaultTableModel model = new DefaultTableModel(data, columnNames);
 
 		card = new CardLayout();
-
 		cardPane.setLayout(card);
 		cardPane.add(LoginPanel, "login Panel");
 		cardPane.add(MainPanel, "Main Panel");
